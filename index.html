@@ -30,29 +30,31 @@
             color: #222222;
             padding-bottom: 50px;
         }
-.banner-container {
-    width: 100%;
-    position: relative;
-    background-color: #a894f8;
-    background-image: url('IMG/primatagrande.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center 15%; /* Mantém o foco no rosto e parte superior */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 480px;               /* Altura necessária para o enquadramento completo */
-    overflow: hidden;
-}
 
-.banner-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 40px 40px 0 40px;
-    position: relative;
-    height: 400px;
-}
+        /* BANNER */
+        .banner-container {
+            width: 100%;
+            position: relative;
+            background-color: #a894f8;
+            background-image: url('IMG/primatagrande.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center 15%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 480px;
+            overflow: hidden;
+        }
+
+        .banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 40px 0 40px;
+            position: relative;
+            height: 400px;
+        }
 
         .tag-pill {
             background-color: #6c8ec4;
@@ -130,57 +132,108 @@
             gap: 40px;
         }
 
+        /* BASE DOS POST-ITS */
         .post-it {
             position: relative;
-            background-color: #fff185;
-            padding: 30px 35px 35px 30px;
-            box-shadow: -4px 6px 15px rgba(0, 0, 0, 0.08);
-            border-radius: 4px;
+            background-color: transparent !important;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            box-shadow: none !important;
+            border-radius: 0;
             box-sizing: border-box;
         }
 
         .post-it::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, transparent 50%, rgba(0, 0, 0, 0.15) 50%),
-                        linear-gradient(315deg, #c7bc58 50%, transparent 50%);
-            border-bottom-right-radius: 4px;
-            pointer-events: none;
-        }
-
-        .titulo-secao {
-            font-size: 1.8rem;
-            letter-spacing: 2px;
-            color: #2b2b2b;
-            display: inline-block;
-            border-bottom: 2px solid #d4c870;
-            padding-bottom: 2px;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-        }
-
-        .linha {
-            font-size: 1.25rem;
-            line-height: 40px;
-            border-bottom: 1px solid #d4c870;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            display: none !important;
         }
 
         .destaque {
             color: #d93829;
         }
 
-        /* PROJETOS */
-        .projetos-container {
-            background-color: #fff185 !important;
-            padding: 32px;
-            border-radius: 8px;
-            box-sizing: border-box;
+        /* SEÇÃO 1: SOBRE MIM */
+        #sobre {
+            background-image: url('IMG/postit-sobre.png');
+            height: 250px;
+            padding: 32px 50px 0 45px;
+        }
+
+        #sobre .titulo-secao {
+            font-size: 1.85rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 14px;
+            display: inline-block;
+            border-bottom: none !important;
+        }
+
+        #sobre .linha {
+            height: 40px;
+            line-height: 40px;
+            font-size: 1.05rem;
+            letter-spacing: 0.1px;
+            white-space: nowrap;
+            overflow: visible;
+            border-bottom: none !important;
+            display: block;
+        }
+
+        /* SEÇÃO 2: FORMACAO ACADEMICA */
+        #formacao {
+            background-image: url('IMG/postit-pautado.png');
+            height: 230px;
+            padding: 10px 50px 0 45px;
+        }
+
+        #formacao .titulo-secao {
+            position: relative;
+            top: -11px;
+            font-size: 1.85rem;
+            letter-spacing: 1.5px;
+            display: inline-block;
+            border-bottom: none !important;
+        }
+
+        #formacao .linha {
+            height: 35px;
+            line-height: 35px;
+            font-size: 1.15rem;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-bottom: none !important;
+            display: block;
+        }
+
+        /* SEÇÃO 3: EXPERIENCIA PROFISSIONAL */
+        #experiencias {
+            background-image: url('IMG/postit-pautado.png');
+            height: 350px;
+            padding: 34px 50px 0 45px;
+        }
+
+        #experiencias .titulo-secao {
+            font-size: 1.85rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            display: inline-block;
+            border-bottom: none !important;
+        }
+
+        #experiencias .linha {
+            height: 39px;
+            line-height: 39px;
+            font-size: 1.15rem;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-bottom: none !important;
+            display: block;
+        }
+
+        /* SEÇÃO 4: PROJETOS */
+        #projetos {
+            background-image: url('IMG/postit-projetos.png');
+            padding: 35px 45px 35px 35px;
         }
 
         .titulo-sessao {
@@ -242,63 +295,54 @@
             object-fit: contain;
         }
 
- /* GALERIA */
-/* GALERIA - 5 COLUNAS E IMAGENS INTEIRAS SEM CORTE */
-.galeria-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Volta para 5 colunas por linha */
-    gap: 12px;
-    margin-top: 15px;
-    width: 100%;
-}
+        /* SEÇÃO 5: GALERIA */
+        #galeria {
+            background-image: url('IMG/postit-galeria.png');
+            padding: 40px 45px 45px 35px;
+        }
 
-.galeria-item {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none !important;
-    outline: none !important;
-}
+        #galeria .titulo-secao {
+            font-size: 1.85rem;
+            letter-spacing: 1.5px;
+            display: inline-block;
+            border-bottom: none !important;
+        }
 
-.galeria-item img {
-    width: 100%;
-    height: auto;             /* Ajusta a altura proporcional ao arquivo original */
-    max-height: none;         /* <--- ALTERADO DE 100% PARA NONE */
-    object-fit: contain !important; /* Garante que 100% da imagem seja visível sem cortar pontas */
-    display: block;
-    border-radius: 6px;
-    border: none !important;
-}
-/* Remove pontilhado de links, botões e elementos internos da galeria */
-.galeria-grid a,
-.galeria-grid div,
-.galeria-item,
-.galeria-item img {
-    border: none !important;
-    outline: none !important;
-    text-decoration: none !important;
-    box-shadow: none !important;
-}
+        #galeria .linha {
+            font-size: 1.15rem;
+            letter-spacing: 0.2px;
+            border-bottom: none !important;
+            margin-bottom: 8px;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+            width: 100%;
+        }
 
         .card-foto {
-    aspect-ratio: 1 / 1;                 /* Formato quadrado igual aos posts do carrossel */
-    background-color: transparent;
-    border: none !important;             /* Garante sem pontilhado */
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+            aspect-ratio: 1 / 1;
+            background-color: transparent;
+            border: none !important;
+            outline: none !important;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.card-foto img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain !important;      /* Mostra o post inteiro sem cortar nenhum canto */
-    display: block;
-    border-radius: 6px;
-}
+        .card-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain !important;
+            display: block;
+            border-radius: 6px;
+            border: none !important;
+        }
 
         .imagem-ampliavel {
             cursor: pointer;
@@ -309,7 +353,12 @@
             opacity: 0.85;
         }
 
-        /* CONTATO */
+        /* SEÇÃO 6: CONTATO */
+        #contato {
+            background-image: url('IMG/postit-contato.png');
+            padding: 30px 40px;
+        }
+
         .contato-container {
             display: flex;
             flex-direction: column;
@@ -364,7 +413,7 @@
             letter-spacing: 1px;
         }
 
-        /* MODAL */
+        /* MODAL (LIGHTBOX) */
         .modal {
             display: none;
             position: fixed;
@@ -396,129 +445,11 @@
             cursor: pointer;
             line-height: 1;
         }
-        /* BASE DOS POST-ITS COM IMAGEM REAL */
-/* BASE DOS POST-ITS */
-.post-it {
-    position: relative;
-    background-color: transparent !important;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    box-shadow: none !important;
-    border-radius: 0;
-    box-sizing: border-box;
-}
-
-.post-it::after {
-    display: none !important;
-}
-
-#sobre {
-    background-image: url('IMG/postit-sobre.png');
-    height: 250px;
-    padding: 32px 50px 0 45px;
-}
-
-#sobre .titulo-secao {
-    font-size: 1.85rem;
-    letter-spacing: 1.5px;
-    margin-bottom: 14px; /* Diminuiu de 18px para 14px para puxar a 1ª frase para cima do traço */
-    display: inline-block;
-    border-bottom: none !important;
-}
-
-#sobre .linha {
-    height: 40px;        /* Aumentou de 41px para 43px para abrir o passo e casar a 2ª e a 3ª linha */
-    line-height: 40px;
-    font-size: 1.05rem;
-    letter-spacing: 0.1px;
-    white-space: nowrap;
-    overflow: visible;
-    border-bottom: none !important;
-    display: block;
-}
-
-#formacao {
-    background-image: url('IMG/postit-pautado.png');
-    height: 230px;
-    padding: 10px 50px 0 45px;
-}
-
-#formacao .titulo-secao {
-    position: relative;
-    top: -11px; 
-    font-size: 1.85rem;
-    letter-spacing: 1.5px;
-    display: inline-block;
-    border-bottom: none !important;
-}
-
-#formacao .linha {
-    height: 35px;      
-    line-height: 35px;
-    font-size: 1.15rem;
-    letter-spacing: 0.2px;
-    white-space: nowrap;
-    overflow: hidden;
-    border-bottom: none !important;
-    display: block;
-}
-
-/* 3. EXPERIENCIA PROFISSIONAL (Imagem alta de 4 pautas) */
-#experiencias {
-    background-image: url('IMG/postit-pautado.png');
-    height: 350px;
-    padding: 34px 50px 0 45px;
-}
-
-#experiencias .titulo-secao {
-    font-size: 1.85rem;
-    letter-spacing: 1.5px;
-    margin-bottom: 20px;
-    display: inline-block;
-    border-bottom: none !important;
-}
-
-#experiencias .linha {
-    height: 39px;
-    line-height: 39px;
-    font-size: 1.15rem;
-    letter-spacing: 0.2px;
-    white-space: nowrap;
-    overflow: hidden;
-    border-bottom: none !important;
-    display: block;
-}
-.titulo-secao {
-    border-bottom: none !important; /* A propria imagem ja possui a linha guia */
-    margin-bottom: 8px;
-}
 
         @keyframes zoom {
             from { transform: scale(0.85); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
-        #formacao, #experiencias {
-    background-image: url('IMG/postit-pautado.png');
-    padding: 30px 45px 25px 45px;
-}
-
-/* 3. PROJETOS (Imagem 1) */
-#projetos {
-    background-image: url('IMG/postit-projetos.png');
-    padding: 35px 45px 35px 35px;
-}
-
-/* 4. GALERIA (Imagem 5) */
-#galeria {
-    background-image: url('IMG/postit-galeria.png');
-    padding: 40px 45px 45px 35px;
-}
-
-/* 5. CONTATO (Imagem 2) */
-#contato {
-    background-image: url('IMG/postit-contato.png');
-    padding: 30px 40px;
-}
     </style>
 </head>
 <body>
@@ -552,30 +483,31 @@
     <main class="container">
 
         <!-- SOBRE MIM -->
-<section class="post-it" id="sobre">
-    <div class="titulo-secao">SOBRE MIM</div>
-    <div class="linha">ME CHAMO <span class="destaque">JORGE FAVERANI SANTOS</span>, CURSO DESIGN E TENHO EXPERIENCIA EM <span class="destaque">PHOTOSHOP E CORELDRAW</span>.</div>
-    <div class="linha">TENHO FAMILIARIDADE COM <span class="destaque">EDICAO DE IMAGENS</span>, <span class="destaque">VETORIZACAO DE LOGOS E ARTES</span>, E SOU <span class="destaque">INICIANTE EM ILUSTRACOES</span>.</div>
-    <div class="linha">ESTOU SEMPRE BUSCANDO DESENVOLVER NOVAS HABILIDADES!</div>
-</section>
+        <section class="post-it" id="sobre">
+            <div class="titulo-secao">SOBRE MIM</div>
+            <div class="linha">ME CHAMO <span class="destaque">JORGE FAVERANI SANTOS</span>, CURSO DESIGN E TENHO EXPERIENCIA EM <span class="destaque">PHOTOSHOP E CORELDRAW</span>.</div>
+            <div class="linha">TENHO FAMILIARIDADE COM <span class="destaque">EDICAO DE IMAGENS</span>, <span class="destaque">VETORIZACAO DE LOGOS E ARTES</span>, E SOU <span class="destaque">INICIANTE EM ILUSTRACOES</span>.</div>
+            <div class="linha">ESTOU SEMPRE BUSCANDO DESENVOLVER NOVAS HABILIDADES!</div>
+        </section>
 
-<!-- FORMACAO ACADEMICA -->
-<section class="post-it" id="formacao">
-    <div class="titulo-secao">FORMACAO ACADEMICA</div>
-    <div class="linha">COMPLETEI MEU ENSINO FUNDAMENTAL E MEDIO NO <span class="destaque">COLEGIO CARDHON BANDEIRAS</span>.</div>
-    <div class="linha">NO MOMENTO ESTOU CURSANDO <span class="destaque">DESIGN NA ANHANGUERA</span>.</div>
-</section>
+        <!-- FORMACAO ACADEMICA -->
+        <section class="post-it" id="formacao">
+            <div class="titulo-secao">FORMACAO ACADEMICA</div>
+            <div class="linha">COMPLETEI MEU ENSINO FUNDAMENTAL E MEDIO NO <span class="destaque">COLEGIO CARDHON BANDEIRAS</span>.</div>
+            <div class="linha">NO MOMENTO ESTOU CURSANDO <span class="destaque">DESIGN NA ANHANGUERA</span>.</div>
+        </section>
 
-<!-- EXPERIENCIA PROFISSIONAL -->
-<section class="post-it" id="experiencias">
-    <div class="titulo-secao">EXPERIENCIA PROFISSIONAL</div>
-    <div class="linha">SOU FUNCIONARIO DE UMA EMPRESA DE <span class="destaque">CAIXAS RIGIDAS PERSONALIZADAS</span> HA MAIS DE 3 ANOS.</div>
-    <div class="linha">NESSA EMPRESA SOU RESPONSAVEL PELA <span class="destaque">CRIACAO DAS CAIXAS E DOS BERCOS</span> PARA ACOMODAR OS ITENS.</div>
-    <div class="linha">TAMBEM SOU RESPONSAVEL POR <span class="destaque">RECEBER, AJUSTAR, APLICAR E REDESENHAR ARTES</span> DOS CLIENTES.</div>
-    <div class="linha">ALEM DAS EMBALAGENS, TAMBEM EDITO <span class="destaque">IMAGENS E VIDEOS</span> DAS EMBALAGENS PARA POSTS.</div>
-</section>
+        <!-- EXPERIENCIA PROFISSIONAL -->
+        <section class="post-it" id="experiencias">
+            <div class="titulo-secao">EXPERIENCIA PROFISSIONAL</div>
+            <div class="linha">SOU FUNCIONARIO DE UMA EMPRESA DE <span class="destaque">CAIXAS RIGIDAS PERSONALIZADAS</span> HA MAIS DE 3 ANOS.</div>
+            <div class="linha">NESSA EMPRESA SOU RESPONSAVEL PELA <span class="destaque">CRIACAO DAS CAIXAS E DOS BERCOS</span> PARA ACOMODAR OS ITENS.</div>
+            <div class="linha">TAMBEM SOU RESPONSAVEL POR <span class="destaque">RECEBER, AJUSTAR, APLICAR E REDESENHAR ARTES</span> DOS CLIENTES.</div>
+            <div class="linha">ALEM DAS EMBALAGENS, TAMBEM EDITO <span class="destaque">IMAGENS E VIDEOS</span> DAS EMBALAGENS PARA POSTS.</div>
+        </section>
 
-        <section class="post-it projetos-container" id="projetos">
+        <!-- PROJETOS -->
+        <section class="post-it" id="projetos">
             <h2 class="titulo-sessao">MEUS PROJETOS</h2>
             <div class="colunas-projetos">
                 <div class="bloco-categoria">
@@ -607,6 +539,7 @@
             </div>
         </section>
 
+        <!-- GALERIA -->
         <section class="post-it" id="galeria">
             <div class="titulo-secao">GALERIA</div>
             <div class="linha">
@@ -638,8 +571,9 @@
             </div>
         </section>
 
+        <!-- CONTATO -->
         <section class="post-it" id="contato">
-    <div class="contato-container">
+            <div class="contato-container">
                 <div class="titulo-secao" style="margin-bottom: 4px;">CONTATO</div>
                 <div class="linha-divisoria linha-curta"></div>
 
@@ -673,7 +607,7 @@
                     <span>WWW.LINKEDIN.COM/IN/JORGE-FAVERANI-SANTOS-904174431</span>
                 </a>
             </div>
-</section>
+        </section>
 
     </main>
 
