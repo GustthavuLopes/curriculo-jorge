@@ -1,2 +1,0 @@
-# curriculo-jorge
-trabalho jorge
