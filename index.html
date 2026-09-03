@@ -35,13 +35,13 @@
     position: relative;
     background-color: #a894f8;
     background-image: url('IMG/primatagrande.jpeg');
-    background-size: cover;
-    background-position: center top; /* Alinha pelo topo para preservar o cabelo */
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 15%; /* Mantém o foco no rosto e parte superior */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 360px; /* Aumenta o espaco vertical */
+    min-height: 480px;               /* Altura necessária para o enquadramento completo */
     overflow: hidden;
 }
 
@@ -49,9 +49,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 0 0 0;
+    padding: 40px 40px 0 40px;
     position: relative;
-    height: 300px; /* Acompanha a nova altura */
+    height: 400px;
 }
 
         .tag-pill {
@@ -242,31 +242,63 @@
             object-fit: contain;
         }
 
-        /* GALERIA */
-        .galeria-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 12px;
-            margin-top: 15px;
-        }
+ /* GALERIA */
+/* GALERIA - 5 COLUNAS E IMAGENS INTEIRAS SEM CORTE */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Volta para 5 colunas por linha */
+    gap: 12px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.galeria-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none !important;
+    outline: none !important;
+}
+
+.galeria-item img {
+    width: 100%;
+    height: auto;             /* Ajusta a altura proporcional ao arquivo original */
+    max-height: none;         /* <--- ALTERADO DE 100% PARA NONE */
+    object-fit: contain !important; /* Garante que 100% da imagem seja visível sem cortar pontas */
+    display: block;
+    border-radius: 6px;
+    border: none !important;
+}
+/* Remove pontilhado de links, botões e elementos internos da galeria */
+.galeria-grid a,
+.galeria-grid div,
+.galeria-item,
+.galeria-item img {
+    border: none !important;
+    outline: none !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+}
 
         .card-foto {
-            aspect-ratio: 4 / 3;
-            background-color: #fbf5c4;
-            border: 1.5px dashed #d1c068;
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    aspect-ratio: 1 / 1;                 /* Formato quadrado igual aos posts do carrossel */
+    background-color: transparent;
+    border: none !important;             /* Garante sem pontilhado */
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .card-foto img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+.card-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;      /* Mostra o post inteiro sem cortar nenhum canto */
+    display: block;
+    border-radius: 6px;
+}
 
         .imagem-ampliavel {
             cursor: pointer;
@@ -365,6 +397,7 @@
             line-height: 1;
         }
         /* BASE DOS POST-ITS COM IMAGEM REAL */
+/* BASE DOS POST-ITS */
 .post-it {
     position: relative;
     background-color: transparent !important;
@@ -372,25 +405,101 @@
     background-repeat: no-repeat;
     box-shadow: none !important;
     border-radius: 0;
+    box-sizing: border-box;
 }
 
-/* Desativa a dobra triangular feita em CSS */
 .post-it::after {
     display: none !important;
 }
 
-/* 1. SOBRE MIM (Imagem 4) */
 #sobre {
     background-image: url('IMG/postit-sobre.png');
-    padding: 35px 50px 30px 40px;
-    min-height: 230px;
+    height: 250px;
+    padding: 32px 50px 0 45px;
 }
 
-/* 2. FORMACAO E EXPERIENCIA (Imagem 3) */
-#formacao, #experiencias {
+#sobre .titulo-secao {
+    font-size: 1.85rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 14px; /* Diminuiu de 18px para 14px para puxar a 1ª frase para cima do traço */
+    display: inline-block;
+    border-bottom: none !important;
+}
+
+#sobre .linha {
+    height: 40px;        /* Aumentou de 41px para 43px para abrir o passo e casar a 2ª e a 3ª linha */
+    line-height: 40px;
+    font-size: 1.05rem;
+    letter-spacing: 0.1px;
+    white-space: nowrap;
+    overflow: visible;
+    border-bottom: none !important;
+    display: block;
+}
+
+#formacao {
     background-image: url('IMG/postit-pautado.png');
-    padding: 35px 50px 30px 40px;
-    min-height: 250px;
+    height: 230px;
+    padding: 10px 50px 0 45px;
+}
+
+#formacao .titulo-secao {
+    position: relative;
+    top: -11px; 
+    font-size: 1.85rem;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    border-bottom: none !important;
+}
+
+#formacao .linha {
+    height: 35px;      
+    line-height: 35px;
+    font-size: 1.15rem;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-bottom: none !important;
+    display: block;
+}
+
+/* 3. EXPERIENCIA PROFISSIONAL (Imagem alta de 4 pautas) */
+#experiencias {
+    background-image: url('IMG/postit-pautado.png');
+    height: 350px;
+    padding: 34px 50px 0 45px;
+}
+
+#experiencias .titulo-secao {
+    font-size: 1.85rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    display: inline-block;
+    border-bottom: none !important;
+}
+
+#experiencias .linha {
+    height: 39px;
+    line-height: 39px;
+    font-size: 1.15rem;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-bottom: none !important;
+    display: block;
+}
+.titulo-secao {
+    border-bottom: none !important; /* A propria imagem ja possui a linha guia */
+    margin-bottom: 8px;
+}
+
+        @keyframes zoom {
+            from { transform: scale(0.85); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        #formacao, #experiencias {
+    background-image: url('IMG/postit-pautado.png');
+    padding: 30px 45px 25px 45px;
 }
 
 /* 3. PROJETOS (Imagem 1) */
@@ -410,26 +519,6 @@
     background-image: url('IMG/postit-contato.png');
     padding: 30px 40px;
 }
-
-/* AJUSTE DO TEXTO NAS LINHAS PAUTADAS */
-/* Como a imagem ja vem com as linhas desenhadas, removemos a borda CSS */
-.linha {
-    font-size: 1.25rem;
-    line-height: 38px;
-    border-bottom: none !important;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.titulo-secao {
-    border-bottom: none !important; /* A propria imagem ja possui a linha guia */
-    margin-bottom: 8px;
-}
-
-        @keyframes zoom {
-            from { transform: scale(0.85); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
     </style>
 </head>
 <body>
@@ -462,44 +551,29 @@
 
     <main class="container">
 
-        <section class="post-it" id="sobre">
-            <div class="titulo-secao">SOBRE MIM</div>
-            <div class="linha">
-                ME CHAMO <span class="destaque">JORGE FAVERANI SANTOS</span>, CURSO DESIGN E TENHO EXPERIENCIA EM <span class="destaque">PHOTOSHOP E CORELDRAW</span>.
-            </div>
-            <div class="linha">
-                TENHO FAMILIARIDADE COM <span class="destaque">EDICAO DE IMAGENS</span>, <span class="destaque">VETORIZACAO DE LOGOS E ARTES</span>, E SOU <span class="destaque">INICIANTE EM ILUSTRACOES</span>.
-            </div>
-            <div class="linha">
-                ESTOU SEMPRE BUSCANDO DESENVOLVER NOVAS HABILIDADES!
-            </div>
-        </section>
+        <!-- SOBRE MIM -->
+<section class="post-it" id="sobre">
+    <div class="titulo-secao">SOBRE MIM</div>
+    <div class="linha">ME CHAMO <span class="destaque">JORGE FAVERANI SANTOS</span>, CURSO DESIGN E TENHO EXPERIENCIA EM <span class="destaque">PHOTOSHOP E CORELDRAW</span>.</div>
+    <div class="linha">TENHO FAMILIARIDADE COM <span class="destaque">EDICAO DE IMAGENS</span>, <span class="destaque">VETORIZACAO DE LOGOS E ARTES</span>, E SOU <span class="destaque">INICIANTE EM ILUSTRACOES</span>.</div>
+    <div class="linha">ESTOU SEMPRE BUSCANDO DESENVOLVER NOVAS HABILIDADES!</div>
+</section>
 
-        <section class="post-it" id="formacao">
-            <div class="titulo-secao">FORMACAO ACADEMICA</div>
-            <div class="linha">
-                COMPLETEI MEU ENSINO FUNDAMENTAL E MEDIO NO <span class="destaque">COLEGIO CARDHON BANDEIRAS</span>.
-            </div>
-            <div class="linha">
-                NO MOMENTO ESTOU CURSANDO <span class="destaque">DESIGN NA ANHANGUERA</span>.
-            </div>
-        </section>
+<!-- FORMACAO ACADEMICA -->
+<section class="post-it" id="formacao">
+    <div class="titulo-secao">FORMACAO ACADEMICA</div>
+    <div class="linha">COMPLETEI MEU ENSINO FUNDAMENTAL E MEDIO NO <span class="destaque">COLEGIO CARDHON BANDEIRAS</span>.</div>
+    <div class="linha">NO MOMENTO ESTOU CURSANDO <span class="destaque">DESIGN NA ANHANGUERA</span>.</div>
+</section>
 
-        <section class="post-it" id="experiencias">
-            <div class="titulo-secao">EXPERIENCIA PROFISSIONAL</div>
-            <div class="linha">
-                SOU FUNCIONARIO DE UMA EMPRESA DE <span class="destaque">CAIXAS RIGIDAS PERSONALIZADAS</span> HA MAIS DE 3 ANOS.
-            </div>
-            <div class="linha">
-                NESSA EMPRESA SOU RESPONSAVEL PELA <span class="destaque">CRIACAO DAS CAIXAS E DOS BERCOS</span> PARA ACOMODAR OS ITENS.
-            </div>
-            <div class="linha">
-                TAMBEM SOU RESPONSAVEL POR <span class="destaque">RECEBER, AJUSTAR, APLICAR E REDESENHAR ARTES</span> DOS CLIENTES.
-            </div>
-            <div class="linha">
-                ALEM DAS EMBALAGENS, TAMBEM EDITO <span class="destaque">IMAGENS E VIDEOS</span> DAS EMBALAGENS PARA POSTS.
-            </div>
-        </section>
+<!-- EXPERIENCIA PROFISSIONAL -->
+<section class="post-it" id="experiencias">
+    <div class="titulo-secao">EXPERIENCIA PROFISSIONAL</div>
+    <div class="linha">SOU FUNCIONARIO DE UMA EMPRESA DE <span class="destaque">CAIXAS RIGIDAS PERSONALIZADAS</span> HA MAIS DE 3 ANOS.</div>
+    <div class="linha">NESSA EMPRESA SOU RESPONSAVEL PELA <span class="destaque">CRIACAO DAS CAIXAS E DOS BERCOS</span> PARA ACOMODAR OS ITENS.</div>
+    <div class="linha">TAMBEM SOU RESPONSAVEL POR <span class="destaque">RECEBER, AJUSTAR, APLICAR E REDESENHAR ARTES</span> DOS CLIENTES.</div>
+    <div class="linha">ALEM DAS EMBALAGENS, TAMBEM EDITO <span class="destaque">IMAGENS E VIDEOS</span> DAS EMBALAGENS PARA POSTS.</div>
+</section>
 
         <section class="post-it projetos-container" id="projetos">
             <h2 class="titulo-sessao">MEUS PROJETOS</h2>
@@ -540,7 +614,7 @@
             </div>
             <div class="galeria-grid">
                 <div class="card-foto"><img src="IMG/1.jpeg" alt="Post 1" class="imagem-ampliavel"></div>
-                <div class="card-foto"><img src="IMG/1.jpeg" alt="Post 2" class="imagem-ampliavel"></div>
+                <div class="card-foto"><img src="IMG/2.jpeg" alt="Post 2" class="imagem-ampliavel"></div>
                 <div class="card-foto"><img src="IMG/3.jpeg" alt="Post 3" class="imagem-ampliavel"></div>
                 <div class="card-foto"><img src="IMG/4.jpeg" alt="Post 4" class="imagem-ampliavel"></div>
                 <div class="card-foto"><img src="IMG/5gostou.jpeg" alt="Post 5" class="imagem-ampliavel"></div>
@@ -557,9 +631,9 @@
                 <div class="card-foto"><img src="IMG/14.jpeg" alt="Post 14" class="imagem-ampliavel"></div>
                 <div class="card-foto"><img src="IMG/15gostou.jpeg" alt="Post 15" class="imagem-ampliavel"></div>
 
-                <div class="card-foto"><img src="IMG/16.jpeg" alt="Post 16" class="imagem-ampliavel"></div>
-                <div class="card-foto"><img src="IMG/17.jpeg" alt="Post 17" class="imagem-ampliavel"></div>
-                <div class="card-foto"><img src="IMG/18.jpeg" alt="Post 18" class="imagem-ampliavel"></div>
+                <div class="card-foto"><img src="IMG/18.jpeg" alt="Post 16" class="imagem-ampliavel"></div>
+                <div class="card-foto"><img src="IMG/16.jpeg" alt="Post 17" class="imagem-ampliavel"></div>
+                <div class="card-foto"><img src="IMG/17.jpeg" alt="Post 18" class="imagem-ampliavel"></div>
                 <div class="card-foto"><img src="IMG/19gostou.jpeg" alt="Post 19" class="imagem-ampliavel"></div>
             </div>
         </section>
