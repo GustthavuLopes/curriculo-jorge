@@ -30,31 +30,29 @@
             color: #222222;
             padding-bottom: 50px;
         }
+.banner-container {
+    width: 100%;
+    position: relative;
+    background-color: #a894f8;
+    background-image: url('IMG/primatagrande.jpeg');
+    background-size: cover;
+    background-position: center top; /* Alinha pelo topo para preservar o cabelo */
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 360px; /* Aumenta o espaco vertical */
+    overflow: hidden;
+}
 
-        /* HEADER / BANNER */
-        .banner-container {
-            width: 100%;
-            position: relative;
-            background-color: #a894f8;
-            background-image: url('IMG/primatagrande.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 280px;
-            overflow: hidden;
-        }
-
-        .banner-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 24px 0 0 0;
-            position: relative;
-            height: 230px;
-        }
+.banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0 0 0;
+    position: relative;
+    height: 300px; /* Acompanha a nova altura */
+}
 
         .tag-pill {
             background-color: #6c8ec4;
@@ -366,6 +364,67 @@
             cursor: pointer;
             line-height: 1;
         }
+        /* BASE DOS POST-ITS COM IMAGEM REAL */
+.post-it {
+    position: relative;
+    background-color: transparent !important;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    box-shadow: none !important;
+    border-radius: 0;
+}
+
+/* Desativa a dobra triangular feita em CSS */
+.post-it::after {
+    display: none !important;
+}
+
+/* 1. SOBRE MIM (Imagem 4) */
+#sobre {
+    background-image: url('IMG/postit-sobre.png');
+    padding: 35px 50px 30px 40px;
+    min-height: 230px;
+}
+
+/* 2. FORMACAO E EXPERIENCIA (Imagem 3) */
+#formacao, #experiencias {
+    background-image: url('IMG/postit-pautado.png');
+    padding: 35px 50px 30px 40px;
+    min-height: 250px;
+}
+
+/* 3. PROJETOS (Imagem 1) */
+#projetos {
+    background-image: url('IMG/postit-projetos.png');
+    padding: 35px 45px 35px 35px;
+}
+
+/* 4. GALERIA (Imagem 5) */
+#galeria {
+    background-image: url('IMG/postit-galeria.png');
+    padding: 40px 45px 45px 35px;
+}
+
+/* 5. CONTATO (Imagem 2) */
+#contato {
+    background-image: url('IMG/postit-contato.png');
+    padding: 30px 40px;
+}
+
+/* AJUSTE DO TEXTO NAS LINHAS PAUTADAS */
+/* Como a imagem ja vem com as linhas desenhadas, removemos a borda CSS */
+.linha {
+    font-size: 1.25rem;
+    line-height: 38px;
+    border-bottom: none !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.titulo-secao {
+    border-bottom: none !important; /* A propria imagem ja possui a linha guia */
+    margin-bottom: 8px;
+}
 
         @keyframes zoom {
             from { transform: scale(0.85); opacity: 0; }
@@ -506,7 +565,7 @@
         </section>
 
         <section class="post-it" id="contato">
-            <div class="contato-container">
+    <div class="contato-container">
                 <div class="titulo-secao" style="margin-bottom: 4px;">CONTATO</div>
                 <div class="linha-divisoria linha-curta"></div>
 
@@ -540,7 +599,7 @@
                     <span>WWW.LINKEDIN.COM/IN/JORGE-FAVERANI-SANTOS-904174431</span>
                 </a>
             </div>
-        </section>
+</section>
 
     </main>
 
