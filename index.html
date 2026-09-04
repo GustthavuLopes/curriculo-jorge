@@ -186,7 +186,7 @@
 
         #formacao .titulo-secao {
             position: relative;
-            top: -11px;
+            top: 6px;
             font-size: 1.85rem;
             letter-spacing: 1.5px;
             display: inline-block;
@@ -194,16 +194,19 @@
         }
 
         #formacao .linha {
-            height: 35px;
-            line-height: 35px;
-            font-size: 1.15rem;
-            letter-spacing: 0.2px;
-            white-space: nowrap;
-            overflow: hidden;
-            border-bottom: none !important;
-            display: block;
-        }
-
+    height: 44px;       /* Aumentado de 41px para 44px para abrir o espaço e descer a 2ª linha */
+    line-height: 44px;
+    font-size: 1.15rem;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-bottom: none !important;
+    display: block;
+}
+#formacao .linha:last-child {
+    position: relative;
+    top: -12px; /* Desce apenas a segunda frase para encostar na linha */
+}
         /* SEÇÃO 3: EXPERIENCIA PROFISSIONAL */
         #experiencias {
             background-image: url('IMG/postit-pautado.png');
@@ -220,15 +223,15 @@
         }
 
         #experiencias .linha {
-            height: 39px;
-            line-height: 39px;
-            font-size: 1.15rem;
-            letter-spacing: 0.2px;
-            white-space: nowrap;
-            overflow: hidden;
-            border-bottom: none !important;
-            display: block;
-        }
+    height: 43px;        /* Corrigido o "px" e aumentado para abrir o espaçamento */
+    line-height: 43px;   /* Mantém o texto alinhado com a nova altura */
+    font-size: 1.15rem;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-bottom: none !important;
+    display: block;
+}
 
         /* SEÇÃO 4: PROJETOS */
         #projetos {
@@ -245,12 +248,6 @@
             border-bottom: 2px solid #d4c870;
             display: inline-block;
             padding-bottom: 2px;
-        }
-
-        .colunas-projetos {
-            display: flex;
-            gap: 48px;
-            align-items: flex-start;
         }
 
         .bloco-categoria {
@@ -275,18 +272,82 @@
             gap: 20px;
         }
 
-        .marcas-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
-            align-items: center;
-            justify-items: center;
-        }
+.colunas-projetos {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
 
-        .marca-lua {
-            grid-column: 1 / 2;
-            grid-row: 1 / 3;
-        }
+.colunas-projetos .bloco-categoria:first-child {
+    flex: 0.9; /* Deixa a coluna do jogo de cartas no tamanho exato */
+}
+
+.colunas-projetos .bloco-categoria:last-child {
+    flex: 1.35; /* Abre mais espaço na largura para as marcas se espalharem */
+}
+
+/* GRID E ENQUADRAMENTO DAS MARCAS FICTÍCIAS */
+/* GRID E ENQUADRAMENTO DAS MARCAS FICTÍCIAS */
+.marcas-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    grid-template-rows: 1fr 1.2fr;
+    column-gap: 20px;
+    row-gap: 15px;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px; /* Afasta todo o grupo da linha vermelha */
+}
+
+/* 1. Lua Grande na Esquerda */
+.marca-lua {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.marca-lua img {
+    width: 100% !important;
+    max-width: 255px !important; /* Tamanho proporcional que não encavala no texto ao lado */
+    height: auto;
+    display: block;
+}
+
+/* 2. Nevado com a Colher (Superior Direito) */
+.marca-texto {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: flex-end; /* Empurra para o canto direito */
+    align-items: center;
+    padding-right: 10px;
+}
+
+.marca-texto img {
+    width: 100% !important;
+    max-width: 185px !important;
+    height: auto;
+    display: block;
+}
+
+/* 3. Selo Redondo com Animais (Inferior Direito) */
+.marca-selo {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: flex;
+    justify-content: flex-end; /* Empurra para o canto inferior direito */
+    align-items: center;
+}
+
+.marca-selo img {
+    width: 100% !important;
+    max-width: 235px !important;
+    height: auto;
+    display: block;
+    margin-top: 5px;
+}
 
         .card-item img {
             max-width: 100%;
